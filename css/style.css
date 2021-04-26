@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    height:100%;
+    overflow: hidden;
+}
+input[type=radio]{
+    display: none;
+}
+li{
+    list-style-type: none;
+}
+.container{
+    position: relative;
+    width:60%;
+    height:55%;
+    background:#333;
+    overflow: hidden;
+}
+.pic{
+    width:100%;
+    height:100%;
+    overflow: hidden;
+}
+.pic .box{
+    position: relative;
+    width:500%;
+    height:100%;
+    transition: margin 0.8s;
+}
+.pic .box > img{
+    float: left;
+    width:calc(100% / 5);
+    height:100%;
+    color: white;
+}
+.pic .before_box,
+.pic .after_box{
+    position: absolute;
+    top:0;
+    width:200%;
+    height:100%;
+    opacity:0;
+}
+.pic .after_box{
+    left:0;
+}
+.pic .before_box{
+   right: 0;
+}
+.pic .after_box img,.pic .before_box img{
+    width:50%;
+    height:100%;
+    float: left;
+}
+.count{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    position: absolute;
+    bottom: 0;
+    left:0;
+    width:100%;
+    height:10%;
+    background:rgba(255,255,255,.1);
+}
+.count > ul{
+    display: flex;
+    align-items:center;
+    justify-content:space-around;
+    width:30%;
+    height:100%;
+}
+.count li{
+    float: left;
+    width:1.2vmax;
+    height:1.2vmax;
+    border-radius: 50%;
+}
+.count li label{
+    display: block;
+    width:14px;
+    height:14px;
+    background:#447fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.8s;
+}
+.count li .btn_1{
+    background:white;
+}
+
+
+.dir_box{
+    position: absolute;
+    top:calc((100% - 100px) / 2);
+    display: flex;
+    width: 100px;
+    height: 100px;
+    background:rgba(0,0,0,.2);
+}
+.left_box{
+    left:0;
+}
+.right_box{
+    right:0;
+}
+
+.dir_box label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    width: 100%;
+    height: 100%;
+    color: white;
+    cursor: pointer;
+}
+.left_box label::after{
+   content: "<";
+}
+.right_box label::after{
+    content: ">";
+}
+
+.dir_box label{
+    display: none;
+}
+.left_box .left_btn_1{
+    display: flex;
+}
+.right_box .right_btn_1{
+    display: flex;
+}

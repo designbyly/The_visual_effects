@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>666</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            color: red;
+        }
+        
+        #data {
+            width: 280px;
+            border: 1px solid grey;
+            margin: 20px auto;
+        }
+        
+        #data>p {
+            display: flex;
+        }
+        
+        #data>h5 {
+            text-align: center;
+        }
+        
+        #data>p>span {
+            padding: 0 10px;
+        }
+        
+        #prev,
+        #next {
+            cursor: pointer;
+        }
+        
+        #nian {
+            flex: 1;
+            text-align: center;
+        }
+        
+        #title {
+            overflow: hidden;
+            list-style: none;
+            background: pink;
+        }
+        
+        #title>li {
+            float: left;
+            width: 40px;
+            height: 26px;
+            line-height: 26px;
+            text-align: center;
+        }
+        
+        #date {
+            overflow: hidden;
+            list-style: none;
+        }
+        
+        #date>li {
+            float: left;
+            width: 34px;
+            height: 34px;
+            margin: 1px 1px;
+            border: 2px solid rgba(0, 0, 0, 0);
+            line-height: 34px;
+            cursor: pointer;
+            text-align: center;
+        }
+        
+        #date>.hover:hover {
+            border: 2px solid green;
+        }
+        
+        .active {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="data">
+        <p>
+            <span id="prev">上一月</span>
+            <span id="nian">2020</span>
+            <span id="next">下一月</span>
+        </p>
+        <h5 id="yue">五月</h5>
+        <ul id="title">
+            <li>日</li>
+            <li>一</li>
+            <li>二</li>
+            <li>三</li>
+            <li>四</li>
+            <li>五</li>
+            <li>六</li>
+        </ul>
+        <ul id="date"></ul>
+    </div>
+    <script>
+        let date = new Date();
+
+        add();
+
+
+        function add() {
+
+
+
+            let cYear = date.getFullYear();
+
+
+            let cMonth = date.getMonth();
+
+
+            let zhou = new Date(cYear, cMonth, 1).getDay() + 1;
+
+
+            let days = new Date(cYear, cMonth + 1, -1).getDate();
+
+            let cDays = date.getDate();
+
+
+            let arr = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", ];
+
+
+            document.getElementById("nian").innerHTML = cYear;
+
+
+            document.getElementById("yue").innerHTML = arr[cMonth];
+
+
+            let html = '';
+
+            for (var i = 0; i < zhou; i++) {
+                html += '<li></li>';
+            }
+
+
+            for (var i = 0; i <= days; i++) {
+
+                if (i == cDays) {
+                    html += '<li class="active">' + i + '</li>';
+                } else {
+                    html += '<li class="hover">' + i + '</li>';
+                }
+
+
+            }
+            document.getElementById('date').innerHTML = html;
+
+
+
+        }
+
+        document.getElementById('prev').onclick = function() {
+            date.setMonth(date.getMonth() - 1);
+            add();
+
+        };
+        document.getElementById('next').onclick = function() {
+            date.setMonth(date.getMonth() + 1);
+            add();
+        };
+    </script>
+</body>
+
+</html>

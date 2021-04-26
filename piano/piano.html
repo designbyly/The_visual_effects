@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+        <meta name="keywords" content=""/>
+        <meta name="description" content=""/>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <style>
+            .box{
+                width:80%;
+                height:70%;
+                position: absolute;
+                left:0;top:0;right:0;bottom: 0;
+                border:1px solid #000;
+                border-radius: 10px;
+                margin:auto;
+            }
+            .box>div{
+                width:33.33333%;
+                float: left;
+                height:100%;
+            }
+            .low>div{
+                height:100%;width:14.2857%;
+                border:1px solid #000;
+                background:#eee;
+                float: left;
+                box-sizing: border-box;
+            }
+            .middle>div{
+                height:100%;width:14.2857%;
+                border:1px solid #000;
+                background:#ddd;
+                float: left;
+                box-sizing: border-box;
+            }
+            .high>div{
+                height:100%;width:14.2857%;
+                border:1px solid #000;
+                background:#ccc;
+                float: left;
+                box-sizing: border-box;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+                <div class="low">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>       
+                </div>
+                <div class="middle">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>  
+                </div>
+                <div class="high">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>  
+                </div>
+        </div>
+        <audio src="C3.mp3"></audio>
+        <audio src="D3.mp3"></audio>
+        <audio src="E3.mp3"></audio>
+        <audio src="F3.mp3"></audio>
+        <audio src="G3.mp3"></audio>
+        <audio src="A3.mp3"></audio>
+        <audio src="B3.mp3"></audio>
+
+        <audio src="C4.mp3"></audio>
+        <audio src="D4.mp3"></audio>
+        <audio src="E4.mp3"></audio>
+        <audio src="F4.mp3"></audio>
+        <audio src="G4.mp3"></audio>
+        <audio src="A4.mp3"></audio>
+        <audio src="B4.mp3"></audio>
+
+
+        <audio src="C5.mp3"></audio>
+        <audio src="D5.mp3"></audio>
+        <audio src="E5.mp3"></audio>
+        <audio src="F5.mp3"></audio>
+        <audio src="G5.mp3"></audio>
+        <audio src="A5.mp3"></audio>
+        <audio src="B5.mp3"></audio>
+    </body>
+    <script>
+        window.onload=function(){
+
+            var divs=document.querySelectorAll(".low div,.middle div,.high div");
+
+            var audio=document.querySelectorAll("audio");
+
+            var keys={
+                49:0,
+                50:1,
+                51:2,
+                52:3,
+                53:4,
+                54:5,
+                55:6,
+                81:7,
+                87:8,
+                69:9,
+                82:10,
+                84:11,
+                89:12,
+                85:13,
+
+                65:14,
+                83:15,
+                68:16,
+                70:17,
+                71:18,
+                72:19,
+                74:20,
+            }
+            document.onkeydown=function(ev){
+                var code=ev.keyCode;
+                var i=keys[code];
+                divs[i].style.background="#fff";
+                        audio[i].play();
+            }
+
+            document.onkeyup=function(ev){
+                var code=ev.keyCode;
+                var i=keys[code];
+                clearTimeout(t);
+                        divs[i].style.background=divs[i].color;
+                        var t=setTimeout(function(){
+                            audio[i].pause();
+                            audio[i].currentTime=0;
+                        },200)
+            }
+
+
+            
+            for(let i=0;i<divs.length;i++){
+                    divs[i].color=getComputedStyle( divs[i],null).background;
+                    divs[i].onmousedown=function(){
+                        this.style.background="#fff";
+                        audio[i].play();
+                    }
+
+                    divs[i].onmouseup=function(){
+                        clearTimeout(t);
+                        this.style.background=this.color;
+                        var t=setTimeout(function(){
+                            audio[i].pause();
+                            audio[i].currentTime=0;
+                        },200)
+                        
+                       
+                    }
+            }
+        }
+    </script>
+</html>
