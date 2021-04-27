@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #000;
+        }
+        
+        h2 {
+            position: relative;
+            margin: 0;
+            font-size: 2em;
+            font-weight: 900;
+            color: #fff;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        h2 span {
+            color: #ff022c;
+        }
+        
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 110%;
+            width: 120%;
+            height: 100%;
+            /* background: -webkit-linear-gradient( linear, red, #000 5% #000 100%); */
+            background: linear-gradient(-90deg, #000 0%, #000 100%);
+            /* background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent); */
+            animation: xiaoliu 5.5s linear forwards;
+        }
+        
+        @keyframes xiaoliu {
+            0% {
+                left: 110%;
+            }
+            100% {
+                left: -20%;
+            }
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <h2><span>D</span>esign_<span>B</span>y_<span>L</span>y in <span>W</span>eekdays</h2>
+</body>
+
+</html>

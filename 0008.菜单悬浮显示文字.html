@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #0d0f1b;
+            overflow: hidden;
+        }
+        
+        ul {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        ul li {
+            list-style: none;
+        }
+        
+        ul li::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 6em;
+            font-weight: 700;
+            pointer-events: none;
+            letter-spacing: 2;
+            opacity: 0;
+            transition: .5s;
+            white-space: nowrap;
+        }
+        
+        ul li:hover::before {
+            opacity: 0.5;
+            letter-spacing: 0;
+        }
+        
+        ul li a {
+            position: relative;
+            display: inline-block;
+            padding: 6px 15px;
+            text-decoration: none;
+            background: #2196f3;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            overflow: hidden;
+            transition: .5s;
+            z-index: 1;
+        }
+        
+        ul:hover li a {
+            opacity: 0;
+        }
+        
+        ul li a:hover {
+            transform: scale(1.4);
+            z-index: 100;
+            background: #ff3f81;
+            opacity: 1;
+        }
+        
+        ul li a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100px;
+            width: 80%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+            transform: skew(35deg);
+        }
+        
+        ul li a:hover::before {
+            left: calc(100%+100px);
+            transition: .5s;
+            transition-delay: .2s;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li data-text="Home"><a href="#">首页</a></li>
+        <li data-text="About"><a href="#">关于</a></li>
+        <li data-text="Services"><a href="#">服务</a></li>
+        <li data-text="Portfolio"><a href="#">作品</a></li>
+        <li data-text="Team"><a href="#">团队</a></li>
+        <li data-text="Contact"><a href="#">联系</a></li>
+    </ul>
+</body>
+
+</html>

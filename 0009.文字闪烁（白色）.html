@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-size: 40px;
+            color: white;
+            letter-spacing: 0.7em;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+        }
+        
+        div>span {
+            opacity: .4;
+        }
+        
+        #I {
+            opacity: 1;
+            animation: I 2s linear reverse infinite;
+        }
+        
+        #L,
+        #H {
+            animation: LG 2s linear reverse infinite;
+        }
+        
+        #H {
+            animation: H 2s linear reverse infinite;
+        }
+        
+        #T {
+            animation: T 2s linear reverse infinite;
+        }
+        
+        @keyframes I {
+            0% {
+                opacity: 0.4;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            20% {
+                opacity: 0.8;
+            }
+            40% {
+                opacity: 0.25;
+            }
+            60% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 0.85;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes LG {
+            0% {
+                opacity: 0.4;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            20% {
+                opacity: 0.8;
+            }
+            40% {
+                opacity: 0.25;
+            }
+            60% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 0.85;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes H {
+            0% {
+                opacity: 0.4;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            20% {
+                opacity: 0.8;
+            }
+            40% {
+                opacity: 0.25;
+            }
+            60% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 0.85;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes T {
+            0% {
+                opacity: 0.4;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            20% {
+                opacity: 0.8;
+            }
+            40% {
+                opacity: 0.25;
+            }
+            60% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 0.85;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <span id="L">
+        L
+    </span>
+        <span id="I">I</span>
+        <span id="G">G</span>
+        <span id="H">H</span>
+        <span id="T">T</span>
+    </div>
+</body>
+
+</html>
