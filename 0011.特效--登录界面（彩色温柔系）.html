@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        body {
+            background: linear-gradient(to bottom right, rgb(114, 135, 254), rgb(130, 88, 186));
+        }
+        
+        body .login {
+            width: 600px;
+            height: 315px;
+            margin: 0 auto;
+            margin-top: 20%;
+            border-radius: 15px;
+            box-shadow: 0 10px 50px 0px rgb(59, 45, 159);
+        }
+        
+        body .login .left {
+            float: left;
+            width: 330px;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            padding: 60px;
+            background: linear-gradient(to bottom right, rgb(95, 76, 194), rgb(118, 76, 163));
+        }
+        
+        body .login .left .title {
+            color: #fff;
+            font-weight: 200;
+            font-size: 18px;
+        }
+        
+        body .login .left .title span {
+            border-bottom: 3px solid rgb(237, 221, 22);
+        }
+        
+        body .login .left .inputall {
+            padding: 20px 0;
+        }
+        
+        body .login .left .inputall input {
+            border: 0;
+            background: none;
+            outline: 0;
+            color: #fff;
+            display: block;
+            margin: 20px 0;
+            padding: 5px 0;
+            border-bottom: 1px solid rgb(199, 191, 219);
+            width: 100%;
+        }
+        
+        body .login .left .inputall input:hover {
+            border-bottom-color: #fff;
+        }
+        
+        body .login .left .message {
+            font-size: 14px;
+            transition: .2s;
+            color: rgb(199, 191, 219);
+            cursor: pointer;
+        }
+        
+        body .login .left .message:hover {
+            color: #fff;
+        }
+        
+         ::-webkit-input-placeholder {
+            color: rgb(199, 191, 219);
+        }
+        
+        body .login .right {
+            width: 150px;
+            display: inline-block;
+            height: calc(100%-120px);
+            vertical-align: top;
+            padding: 60px 0;
+        }
+        
+        body .login .right .right_regist {
+            text-align: center;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 200;
+        }
+        
+        body .login .right .right_regist span {
+            border-bottom: 3px solid rgb(237, 221, 22);
+        }
+        
+        body .login .right.action {
+            font-size: 10px;
+            color: #fff;
+            text-align: center;
+            position: relative;
+        }
+        
+        body .login .right .action span {
+            border: 1px solid rgb(237, 221, 22);
+            padding: 10px;
+            display: inline-block;
+            line-height: 25px;
+            border-radius: 25px;
+            position: absolute;
+            left: calc(72px 25px);
+            transition: .2s;
+            cursor: pointer;
+        }
+        
+        body .login .right .action span:hover {
+            background-color: rgb(237, 221, 22);
+            color: rgb(95, 76, 194);
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="login">
+        <div class="left">
+            <div class="title"><span>登录</span></div>
+            <div class="inputall">
+                <input type="text" name="username" placeholder="用户名">
+                <input type="password" name="password" id="" placeholder="密码">
+            </div>
+            <div class="message">
+                <span>忘记密码</span>
+            </div>
+        </div>
+        <div class="right">
+            <div class="right_regist">
+                <span class="regist">注册</span>
+            </div>
+            <div class="action">
+                <span>提交</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

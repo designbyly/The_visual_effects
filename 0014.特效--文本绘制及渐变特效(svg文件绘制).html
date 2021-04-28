@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: #2f3542;
+        }
+        
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        
+        .logo_text {
+            font-family: "PingFang SC";
+            font-size: 96px;
+            fill: none;
+            stroke: url(#geekColor);
+            stroke-width: 1;
+            stroke-dasharray: 10 800;
+            stroke-dashoffset: 10;
+            animation: 5s linear 0s draw forwards;
+        }
+        
+        @keyframes draw {
+            to {
+                stroke-dasharray: 800;
+                stroke-dasharray: 0;
+            }
+        }
+    </style>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <svg width="800" height="250" class="text">
+        <text class="logo_text" x="100" y="100"> 
+        橘子太酸辣
+        </text>
+<!-- 定义渐变颜色 -->
+        <defs>
+            <linearGradient id="geekColor" gradientTransform="rotate(90)">
+             <stop pffset="0%" stop-color="#12cad6">
+  <!-- 渐变动画 -->
+  <animate  attributeName="stop-color"
+  value="#91bd3a;#12cad6;#91bd3a"
+  dur="10s"
+  begin="3s"
+  repeatCount="indefinite"
+  >
+  </animate>
+             </stop>
+             <stop pffset="100%" stop-color="#12cad6">
+  <!-- 渐变动画 -->
+  <animate  attributeName="stop-color"
+  value="#12cad6;#91bd3a:#12cad6"
+  dur="10s"
+  begin="3s"
+  repeatCount="indefinite"
+  >
+  </animate>
+             </stop>
+            </linearGradient>
+        </defs> 
+      
+        </svg>
+    </div>
+</body>
+
+</html>
