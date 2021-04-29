@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            background: #040d15;
+        }
+        
+        a {
+            position: relative;
+            display: inline-block;
+            padding: 12px 36px;
+            margin: 10px 0;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 18px;
+            overflow: hidden;
+            letter-spacing: 2px;
+            border-radius: 40px;
+            background: linear-gradient(90deg, #0162c8, #55e7fc);
+        }
+        
+        a:nth-child(2) {
+            background: linear-gradient(90deg, #755bea, #ff72c0);
+        }
+        
+        span {
+            position: absolute;
+            background: #fff;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            border-radius: 50%;
+            animation: animate 1s linear infinite;
+        }
+        
+        @keyframes animate {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 0.5;
+            }
+            100% {
+                width: 500px;
+                height: 500px;
+                opacity: 0;
+            }
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="#">Button</a>
+    <a href="#">Button</a>
+    <script>
+        const buttons = document.querySelectorAll('a');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                let x = e.clientX - e.target.offsetLeft;
+                let y = e.clientY - e.target.offsetTop;
+                let ripples = document.createElement('span');
+                ripples.style.left = x + 'px';
+                ripples.style.top = y + 'px';
+                this.appendChild(ripples);
+                setInterval(() => {
+                    ripples.remove()
+                }, 1000);
+            })
+        })
+    </script>
+</body>
+
+</html>

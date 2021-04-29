@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+        }
+        
+        body,
+        .nav,
+        .menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .nav {
+            position: relative;
+            background-color: #fff;
+            padding: 20px;
+            transform: 0.5s;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 8px rgba(0, 0, 0, .2);
+        }
+        
+        ul li {
+            list-style: none;
+            padding: 0 10px;
+        }
+        
+        .menu {
+            margin: 0;
+            padding: 0;
+            width: 0;
+            overflow: hidden;
+            transition: .5s;
+        }
+        
+        .nav input:checked~.menu {
+            width: 450px;
+        }
+        
+        .menu li a {
+            text-decoration: none;
+            color: #666;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: .5s;
+        }
+        
+        .menu li a:hover {
+            color: #161919;
+        }
+        
+        .nav input {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            opacity: 0;
+        }
+        
+        .nav span {
+            position: absolute;
+            left: 30px;
+            width: 30px;
+            height: 4px;
+            border-radius: 50px;
+            background-color: #666;
+            pointer-events: none;
+            transition: .5s;
+        }
+        
+        .nav input:checked~span {
+            background-color: #f974a1;
+        }
+        
+        .nav span:nth-child(2) {
+            transform: translateY(-8px);
+        }
+        
+        .nav input:checked~span:nth-child(2) {
+            transform: translateY(0) rotate(-45deg);
+        }
+        
+        .nav span :nth-child(3) {
+            transform: translateY(8px);
+        }
+        
+        .nav input:checked~span:nth-child(3) {
+            transform: translateY(0) rotate(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <input type="checkbox">
+        <span></span>
+        <span></span>
+        <ul class="menu">
+            <li><a href="#">about</a></li>
+            <li><a href="#">tell</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">tell</a></li>
+            <li><a href="#">about</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>
