@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #e0e3ed;
+        }
+        
+        canvas {
+            border-radius: 8px;
+            box-shadow: 0 0 18px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body onload="draw();">
+    <main>
+        <canvas width="600" height="300" id="bar-chart">
+        </canvas>
+    </main>
+    <script>
+        const months = ["1月", "1月", "1月", "1月", "1月", "1月", "1月", "1月"];
+
+        function draw() {
+            var canvas = document.getElementById("bar-chart");
+            var ctx = canvas.getContext("2d");
+
+            let cWidth = canvas.width;
+            let cHeight = canvas.height;
+            ctx.fillStyle = "#f8fcff";
+            ctx.fillRect(0, 0, cWidth, cHeight);
+            let padding = 40;
+            let width = 8;
+            let maxHeight = (cHeight - padding * 2) / 2;
+            let minHeight = maxHeight / 2;
+            let barGap = (cWidth - 2 * padding - 9 * width) / 8;
+
+            let radius = 5;
+            let y = cHeight / 2;
+            for (let i = 0; i < 9; i++) {
+                let height1 = Math.floor(
+                    Math.random() * (maxHeight - minHeight + 1) + minHeight
+                );
+                let height2 = Math.floor(
+                    Math.random() * (maxHeight - minHeight + 1) + minHeight);
+                let x = padding + (barGap + width) * i;
+                drawBar(ctx, x, y, width, height1, height2, radius);
+
+                ctx.fillStyle = "#747d8c";
+                ctx.textAlign = "center";
+                ctx.font = "300 12px sand-serif";
+                ctx.fillText(months[i].x + width / 2, y + maxHeight + 20);
+            }
+
+            // drawBar(ctx, 300, 150, 14, 80, 60, 5);
+        }
+
+        function drawBar(ctx, x, y, width, height1, height2, radius) {
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x, y - height1 + radius);
+            ctx.arcTo(
+                x,
+                y - height1,
+                x + radius,
+                y - height1,
+                radius);
+            ctx.lineTo(
+                x + width - radius,
+                y - height1
+            );
+            ctx.arcTo(
+                x + width,
+                y - height1,
+                x + width,
+                y - height1 + radius,
+                radius);
+            ctx.lineTo(x + width, y);
+            ctx.lineTo(x, y);
+            ctx.fillStyle = "#341f97";
+
+            ctx.lineTo();
+
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x, y + height2 - radius);
+            ctx.arcTo(
+                x,
+                y + height2,
+                x + radius,
+                y + height2,
+                radius
+            );
+            ctx.lineTo(x + width - radius,
+                y + height2);
+            ctx.arcTo(
+                x + width,
+                y + height2,
+                x + width,
+                y + height2 - radius,
+                radius);
+            ctx.lineTo(x + width, y);
+            ctx.lineTo(x, y);
+            ctx.fillStyle = "#54a0ff";
+
+            ctx.fill();
+            // ctx.stroke();
+        }
+    </script>
+</body>
+
+</html>
