@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+        
+        .effect {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            filter: contrast(10);
+            background: #fff;
+        }
+        
+        .blackball,
+        .redball {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            padding: 10px;
+            filter: blur(5px);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .blackball {
+            width: 100px;
+            height: 100px;
+            background-color: #000;
+        }
+        
+        .redball {
+            width: 60px;
+            height: 60px;
+            background-color: red;
+            animation: ball 5s infinite;
+        }
+        
+        @keyframes ball {
+            0%,
+            100% {
+                left: 50px;
+                width: 60px;
+                height: 60px;
+            }
+            4%,
+            54% {
+                width: 60px;
+                height: 60px;
+            }
+            10%,
+            60% {
+                width: 50px;
+                height: 70px;
+            }
+            20%,
+            70% {
+                width: 60px;
+                height: 60px;
+            }
+            34%,
+            90% {
+                width: 70px;
+                height: 50px;
+            }
+            41% {
+                width: 60px;
+                height: 60px;
+            }
+            50% {
+                left: 270px;
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="effect">
+        <div class="blackball"></div>
+        <div class="redball"></div>
+    </div>
+</body>
+
+</html>

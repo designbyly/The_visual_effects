@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(-135deg, #c850c0, #4158d0);
+        }
+        
+        .wrapper {
+            width: 450px;
+            background: #fff;
+            padding: 30px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .wrapper .input-data {
+            height: 40px;
+            width: 100%;
+            position: relative;
+        }
+        
+        .wrapper .input-data input {
+            height: 100%;
+            width: 100%;
+            border: none;
+            font-size: 17px;
+            border-bottom: 2px solid silver;
+        }
+        
+        .input-data .underline::before {
+            position: absolute;
+            content: '';
+            height: 100%;
+            width: 100%;
+            background: gray;
+        }
+        
+        .input-data input:focus~label,
+        .input-data input:valid~label {
+            transform: translateY(-20px);
+            font-size: 18px;
+            color: #4158d0;
+        }
+        
+        .wrapper .input-data label {
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            color: gray;
+            pointer-events: none;
+            transition: all .3s ease;
+        }
+        
+        .wrapper .input-data .underline {
+            position: absolute;
+            bottom: 0px;
+            height: 2px;
+            width: 100%;
+        }
+        
+        .input-data input:focus~label::before,
+        .input-data input:valid~label::before {
+            transform: scaleX(1);
+            color: gray;
+        }
+    }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="input-data">
+            <input type="text" required>
+            <div class="underline"></div>
+            <label for="">Name</label>
+        </div>
+    </div>
+</body>
+
+</html>

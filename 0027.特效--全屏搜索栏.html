@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            position: relative;
+        }
+        
+        .wrapper,
+        .search-data {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .wrapper {
+            position: fixed;
+            height: 0px;
+            width: 0px;
+            border-radius: 100%;
+            transition: all 0.4s linear;
+            background: linear-gradient(-135deg, #c850c0, #4158d0);
+        }
+        
+        .wrapper .active {
+            height: 4000px;
+            width: 4000px;
+            background: linear-gradient(-135deg, #c850c0, #4158d0);
+        }
+        
+        .search-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 60px;
+            width: 60px;
+            line-height: 60px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 50%;
+            background: linear-gradient(-135deg, #c850c0, #4158d0);
+        }
+        
+        .search-btn span {
+            color: #fff;
+            font-size: 22px;
+            line-height: 60px;
+        }
+        
+        .search-data {
+            position: absolute;
+            height: 50px;
+            width: 400px;
+            display: flex;
+            text-align: center;
+            /* display: none; */
+        }
+        
+        .search-data input {
+            height: 100%;
+            width: 100%;
+            background: none;
+            border: none;
+            outline: none;
+            font-size: 22px;
+            font-weight: 500;
+            color: #fff;
+        }
+        
+        .search-data .line {
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: #fff;
+            bottom: 0;
+            transform: scaleX(0);
+            transition: transform 0.4s 0.3s linear;
+        }
+        
+        .search-data .line.active {
+            transform: scaleX(1);
+        }
+        
+        .search-data label {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            font-size: 20px;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .search-data input:valid~label {
+            /* display: none; */
+            opacity: 0;
+        }
+        
+        .search-data span {
+            color: #fff;
+            position: absolute;
+            width: 50px;
+            font-size: 25px;
+            right: 0;
+            top: 0;
+            line-height: 45px;
+            cursor: pointer;
+        }
+        
+        .close-btn {
+            position: absolute;
+            z-index: 99;
+            right: 25px;
+            top: 25px;
+            font-size: 25px;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        .search-data,
+        .search-data span,
+        .search-data label,
+        .close-btn {
+            display: none;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="close-btn">
+        <span class="fas fa-search"><img src="./img/错误 wrong.png" alt="" width="24px" height="24px"></span>
+    </div>
+    <div class="wrapper">
+
+        <div class="search-btn">
+            <span class="fas fa-search">
+        <img src="./img/搜索--1.png" alt="" width="24px" height="24px">
+    </span>
+        </div>
+
+        <div class="search-data">
+            <input type="text" required>
+            <div class="line"></div>
+            <label for="">Type to search...</label>
+            <span class="fas fa-search"><img src="./img/搜索--1.png" alt="" width="24px" height="24px"></span>
+        </div>
+    </div>
+    <script type="">
+        $(".search-btn").click(function(){ $(".wrapper") .addClass(".active"); $(this) .css("display","none"); $(".search-data ") .fadeIn(500); $(".close-btn").fadeIn(500); $(".search-data .line") .addClass(".active"); setTimeout( function () { $("input").focus();
+        $(".search-data label") .fadeIn(500); $(".search-data span").fadeIn(500); }, 800); } ); $(".close-btn") .click(function(){ $(".wrapper").removeClass(".active"); $(".search-btn").fadeIn(800); $(".search-data").fadeOut(500); $(".close-btn").fadeOut(500);
+        $(".search-data .line") .removeClass(".active"); $("input") .val(""); $(".search-data label") .fadeOut(500); $(".search-data span").fadeOut(500); });
+    </script>
+</body>
+
+</html>
